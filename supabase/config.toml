@@ -1,0 +1,25 @@
+# Supabase CLI configuration (local development: `supabase start`).
+project_id = "adisah-store"
+
+[api]
+schemas = ["public"]
+extra_search_path = ["public", "extensions"]
+
+[db.seed]
+enabled = true
+sql_paths = ["./seed.sql"]
+
+[auth]
+site_url = "http://localhost:3000"
+additional_redirect_urls = ["http://localhost:3000"]
+enable_signup = true
+
+[auth.mfa]
+max_enrolled_factors = 10
+
+[auth.mfa.totp]
+enroll_enabled = true
+verify_enabled = true
+
+[storage]
+file_size_limit = "5MiB"

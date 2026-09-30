@@ -1,0 +1,93 @@
+@import "tailwindcss";
+@import "./tokens.css";
+
+/* Store Operations: a dense, calm work tool. Same palette, less ornament. */
+
+@layer base {
+  body {
+    background: #f4f1ea;
+    color: var(--color-ink-900);
+    font-family: var(--font-sans);
+    font-size: 14px;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-gold-500);
+    outline-offset: 1px;
+  }
+  .tabular { font-variant-numeric: tabular-nums; }
+}
+
+@layer components {
+  .panel {
+    background: #fff;
+    border: 1px solid var(--color-cream-200);
+    border-radius: 6px;
+  }
+  .o-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    height: 36px;
+    padding: 0 0.85rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: background-color 120ms, border-color 120ms;
+  }
+  .o-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+  .o-btn-primary { background: var(--color-forest-800); color: #fff; }
+  .o-btn-primary:hover:not(:disabled) { background: var(--color-forest-900); }
+  .o-btn-secondary { background: #fff; border: 1px solid var(--color-cream-300); color: var(--color-ink-900); }
+  .o-btn-secondary:hover:not(:disabled) { border-color: var(--color-ink-400); }
+  .o-btn-danger { background: #fff; border: 1px solid rgb(164 68 42 / 0.45); color: var(--color-clay-600); }
+  .o-btn-danger:hover:not(:disabled) { background: var(--color-clay-100); }
+  .o-btn-danger-solid { background: var(--color-clay-600); color: #fff; }
+  .o-btn-danger-solid:hover:not(:disabled) { background: #8a3822; }
+
+  .o-input {
+    height: 36px;
+    width: 100%;
+    padding: 0 0.6rem;
+    border: 1px solid var(--color-cream-300);
+    border-radius: 4px;
+    background: #fff;
+    font-size: 13px;
+  }
+  textarea.o-input { height: auto; padding: 0.5rem 0.6rem; }
+  .o-input:focus { outline: none; border-color: var(--color-forest-700); box-shadow: 0 0 0 3px rgb(31 90 65 / 0.14); }
+  .o-label { display: block; margin-bottom: 0.3rem; font-size: 12px; font-weight: 600; color: var(--color-ink-700); }
+  .o-hint { margin-top: 0.25rem; font-size: 12px; color: var(--color-ink-500); }
+
+  .o-table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 13px; }
+  .o-table th {
+    position: sticky; top: 0; z-index: 1;
+    background: #faf8f3;
+    border-bottom: 1px solid var(--color-cream-200);
+    padding: 0.55rem 0.75rem;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-ink-500);
+    white-space: nowrap;
+  }
+  .o-table td { border-bottom: 1px solid #f0ebe0; padding: 0.5rem 0.75rem; vertical-align: middle; }
+  .o-table tbody tr:hover td { background: #fcfbf7; }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.1rem 0.5rem; border-radius: 999px;
+    font-size: 11.5px; font-weight: 600; white-space: nowrap;
+  }
+  .pill-green { background: var(--color-forest-50); color: var(--color-forest-700); }
+  .pill-gold { background: var(--color-gold-100); color: #7a5712; }
+  .pill-clay { background: var(--color-clay-100); color: var(--color-clay-600); }
+  .pill-grey { background: #efece6; color: var(--color-ink-500); }
+  .pill-blue { background: #e4edf6; color: #2d5b86; }
+
+  dialog.o-dialog { margin: auto; border: 0; padding: 0; border-radius: 8px; background: #fff; max-width: min(28rem, calc(100vw - 2rem)); }
+  dialog.o-dialog::backdrop { background: rgb(11 35 26 / 0.45); }
+}
